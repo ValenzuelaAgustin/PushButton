@@ -8,13 +8,12 @@ int contador = 0;
 
 void setup()
 {
-    pinMode (1, INPUT_PULLUP);
     lcd.begin (16,2);
 }
 
 void loop()
 {
-    if (p1.Read()) contador++;  
+    if (p1.Read()) contador++;
     lcd.setCursor(0,0);
     lcd.print (contador);
 }

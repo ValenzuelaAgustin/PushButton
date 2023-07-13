@@ -7,7 +7,7 @@ button::button(byte pin, byte mode)
 
     switch (this->mode)
     {
-    case PULLUP:
+    case INPUT_PULLUP:
         pinMode (this->pin, INPUT_PULLUP);
         break;
 

@@ -1,8 +1,8 @@
 #include <LiquidCrystal.h>
-#include "pulsador.h"
+#include "button.hpp"
 
 LiquidCrystal lcd (12, 11 ,10, 9, 8, 7);
-pulsador p1 (2, PULLUP);
+button p1 (2, PULLUP);
 
 int contador = 0;
 

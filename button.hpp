@@ -15,7 +15,7 @@ public:
 private:
     byte pin;
     byte mode;
-    unsigned long debounceSTART = 0;
+    unsigned long debounceSTART;
 };
 
 #endif

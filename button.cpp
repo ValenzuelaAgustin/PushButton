@@ -18,9 +18,9 @@ button::button(byte pin, byte mode)
 
 bool button::Read()
 {
-    if (millis() - debounceSTART >= debounceTIME)
+    if (millis() - last_pressed >= debounceTIME)
     {
-        debounceSTART = millis();
+        last_pressed = millis();
         return digitalRead(pin);
     }
     switch (mode)

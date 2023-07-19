@@ -4,6 +4,7 @@
 
 #define PULLDOWN 0
 #define PULLUP 1
+#define debounceTIME 150
 
 class button
 {
@@ -14,7 +15,7 @@ public:
 private:
     byte pin;
     byte mode;
-    unsigned long start = 0;
+    unsigned long debounceSTART = 0;
 };
 
 #endif

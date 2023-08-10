@@ -13,9 +13,9 @@ public:
     bool Read();
 
 private:
-    bool is_pressed;
     byte pin;
     bool mode;
+    bool is_pressed;
     unsigned long last_pressed;
 };
 

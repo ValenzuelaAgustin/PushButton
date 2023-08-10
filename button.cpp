@@ -4,6 +4,7 @@ button::button(byte pin, byte mode)
 {
     this->pin = pin;
     mode *= (mode == PULLDOWN || mode == PULLUP || mode == INPUT_PULLUP);
+    this->mode = mode && 1;
 
     switch (mode)
     {
@@ -14,8 +15,6 @@ button::button(byte pin, byte mode)
         pinMode(pin, INPUT);
         break;
     }
-
-    this->mode = mode && 1;
 }
 
 bool button::Read()

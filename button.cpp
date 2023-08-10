@@ -3,7 +3,7 @@
 button::button(byte pin, byte mode)
 {
     this->pin = pin;
-    this->mode = mode;
+    mode *= (mode == PULLDOWN || mode == PULLUP || mode == INPUT_PULLUP);
 
     switch (mode)
     {
@@ -14,22 +14,13 @@ button::button(byte pin, byte mode)
         pinMode(pin, INPUT);
         break;
     }
+
+    this->mode &= 1;
 }
 
 bool button::Read()
 {
-    if (millis() - last_pressed >= debounceTIME)
-    {
-        last_pressed = millis();
-        return digitalRead(pin);
-    }
-    switch (mode)
-    {
-    case PULLDOWN:
-        return 0;
-        break;
-    default:
-        return 1;
-        break;
-    }
+    is_pressed = (digitalRead(pin) != mode) && (millis() - last_pressed >= debounceTIME);
+    last_pressed = millis() * is_pressed + last_pressed * !is_pressed;
+    return is_pressed != mode;
 }

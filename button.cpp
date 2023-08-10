@@ -15,7 +15,7 @@ button::button(byte pin, byte mode)
         break;
     }
 
-    this->mode &= 1;
+    this->mode = mode && 1;
 }
 
 bool button::Read()

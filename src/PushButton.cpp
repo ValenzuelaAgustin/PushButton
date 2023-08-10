@@ -1,6 +1,6 @@
-#include "button.hpp"
+#include "PushButton.hpp"
 
-button::button(byte pin, byte mode)
+PushButton::PushButton(byte pin, byte mode)
 {
     this->pin = pin;
     mode *= (mode == PULLDOWN || mode == PULLUP || mode == INPUT_PULLUP);
@@ -17,7 +17,7 @@ button::button(byte pin, byte mode)
     }
 }
 
-bool button::Read()
+bool PushButton::Read()
 {
     is_pressed = (digitalRead(pin) != mode) && (millis() - last_pressed >= debounceTIME);
     last_pressed = millis() * is_pressed + last_pressed * !is_pressed;

@@ -1,15 +1,15 @@
-#ifndef BUTTON_HPP
-#define BUTTON_HPP
+#ifndef PUSHBUTTON_HPP
+#define PUSHBUTTON_HPP
 #include <Arduino.h>
 
 #define PULLDOWN 0
 #define PULLUP 1
 #define debounceTIME 150
 
-class button
+class PushButton
 {
 public:
-    button(byte pin, byte mode);
+    PushButton(byte pin, byte mode);
     bool Read();
 
 private:
@@ -19,4 +19,4 @@ private:
     unsigned long last_pressed;
 };
 
-#endif
+#endif 

@@ -2,8 +2,13 @@
 #define PUSHBUTTON_HPP
 #include <Arduino.h>
 
+#ifndef PULLDOWN
 #define PULLDOWN 0
+#endif
+#ifndef PULLUP
 #define PULLUP 1
+#endif
+
 #define debounceTIME 150
 
 class PushButton

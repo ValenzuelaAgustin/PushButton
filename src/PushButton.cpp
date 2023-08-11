@@ -4,7 +4,7 @@ PushButton::PushButton(byte pin, byte mode)
 {
     this->pin = pin;
     mode *= (mode == PULLDOWN || mode == PULLUP || mode == INPUT_PULLUP);
-    this->mode = mode && 1;
+    this->mode = mode && (mode == PULLUP || mode == INPUT_PULLUP);
 
     switch (mode)
     {

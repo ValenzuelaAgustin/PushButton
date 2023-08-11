@@ -14,7 +14,7 @@ int counter2 = 0;
 
 void setup()
 {
-    Serial.begin(9600);
+    Serial.begin(115200);
     pinMode(p2, INPUT_PULLUP);
 }
 

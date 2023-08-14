@@ -14,14 +14,14 @@
 class PushButton
 {
 public:
-    PushButton(byte pin, byte mode);
+    PushButton(uint8_t pin, uint8_t mode);
     bool Read();
 
 private:
-    byte pin;
-    bool mode;
+    uint32_t last_pressed;
+    uint8_t pin;
     bool is_pressed;
-    unsigned long last_pressed;
+    bool mode;
 };
 
-#endif 
+#endif

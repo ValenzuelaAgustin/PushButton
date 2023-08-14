@@ -1,6 +1,6 @@
 #include "PushButton.hpp"
 
-PushButton::PushButton(byte pin, byte mode)
+PushButton::PushButton(uint8_t pin, uint8_t mode)
 {
     this->pin = pin;
     mode *= (mode == PULLDOWN || mode == PULLUP || mode == INPUT_PULLUP);

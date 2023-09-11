@@ -3,8 +3,7 @@
 PushButton::PushButton(uint8_t pin, uint8_t mode)
 {
     this->pin = pin;
-    mode *= (mode == PULLDOWN || mode == PULLUP || mode == INPUT_PULLUP);
-    this->mode = mode && (mode == PULLUP || mode == INPUT_PULLUP);
+    this->mode = (mode == PULLUP) || (mode == INPUT_PULLUP);
 
     switch (mode)
     {

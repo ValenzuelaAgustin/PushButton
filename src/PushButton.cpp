@@ -18,7 +18,7 @@ PushButton::PushButton(uint8_t pin, uint8_t mode)
 
 bool PushButton::Read()
 {
-    is_pressed = (digitalRead(pin) != mode) && (millis() - last_pressed >= debounceTIME);
+    is_pressed = ((bool)digitalRead(pin) != mode) && (millis() - last_pressed >= debounceTIME);
     last_pressed = millis() * is_pressed + last_pressed * !is_pressed;
     return is_pressed != mode;
 }

@@ -12,7 +12,7 @@ int counter2 = 0;
 
 void ISR()
 {
-    p1.ISR();
+    p1.checkState();
 }
 
 void setup()

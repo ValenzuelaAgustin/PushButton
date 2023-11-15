@@ -37,17 +37,18 @@ public:
     /// \return true if the Button is being pressed.
     bool isPressed();
 
-    /// \return true if the Button has being released and this method wasnt called since.
+    /// \return true if the Button has been released and this method wasnt called since.
     bool justReleased();
 
 private:
     uint32_t last_pressed = 0;
     uint32_t last_release = 0;
     uint8_t pin = 0;
+    bool mode = 0;
     bool is_pressed = false;
     bool just_pressed = false;
     bool just_released = false;
-    bool mode = 0;
+    bool debounced_read = false;
 };
 
 #endif

@@ -25,15 +25,18 @@ void setup()
 void loop()
 {
     if (p1.justPressed())
-    {
-        Serial.printf("\nPresionado");
-    }
+        Serial.printf("\njustPressed");
+
+    if(!p1.Read())
+        Serial.printf("\nRead");
+
     if (p1.justReleased())
     {
         Serial.print("\nCounter: ");
         Serial.println(counter);
         ++counter;
     }
+
     if (!digitalRead(p2))
     {
         Serial.print("\t\tCounter2: ");

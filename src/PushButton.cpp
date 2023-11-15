@@ -17,11 +17,17 @@ void PushButton::checkState()
     if (is_pressed && ((bool)digitalRead(pin) == mode))
     {
         is_pressed = false;
+        just_pressed = false;
         just_released = true;
         last_release = millis();
     }
-    is_pressed = ((bool)digitalRead(pin) != mode) && (millis() - last_release >= debounceTIME);
-    just_released = just_released && !is_pressed;
+    if (!is_pressed && ((bool)digitalRead(pin) != mode) && (millis() - last_release >= debounceTIME))
+    {
+        is_pressed = true;
+        just_pressed = true;
+        just_released = false;
+        last_pressed = millis();
+    }
 }
 
 bool PushButton::Read()
@@ -29,6 +35,14 @@ bool PushButton::Read()
     is_pressed = ((bool)digitalRead(pin) != mode) && (millis() - last_pressed >= debounceTIME);
     last_pressed = millis() * is_pressed + last_pressed * !is_pressed;
     return is_pressed != mode;
+}
+
+bool PushButton::justPressed()
+{
+    if (!just_pressed)
+        return false;
+    just_pressed = false;
+    return true;
 }
 
 bool PushButton::isPressed()

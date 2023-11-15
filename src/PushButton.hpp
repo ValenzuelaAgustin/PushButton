@@ -31,6 +31,9 @@ public:
     /// or another HIGH in case the mode was PULLDOWN.
     bool Read();
 
+    /// \return true if the button is being pressed & this method hasnt been called since.
+    bool justPressed();
+
     /// \return true if the Button is being pressed.
     bool isPressed();
 
@@ -42,6 +45,7 @@ private:
     uint32_t last_release = 0;
     uint8_t pin = 0;
     bool is_pressed = false;
+    bool just_pressed = false;
     bool just_released = false;
     bool mode = 0;
 };

@@ -24,9 +24,13 @@ void setup()
 
 void loop()
 {
+    if (p1.justPressed())
+    {
+        Serial.printf("\nPresionado");
+    }
     if (p1.justReleased())
     {
-        Serial.print("Counter: ");
+        Serial.print("\nCounter: ");
         Serial.println(counter);
         ++counter;
     }

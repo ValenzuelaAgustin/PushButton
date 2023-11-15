@@ -12,7 +12,7 @@ void PushButton::begin(void(*ISR)())
     attachInterrupt(digitalPinToInterrupt(pin), ISR, CHANGE);
 }
 
-void PushButton::ISR()
+void PushButton::checkState()
 {
     if (is_pressed && ((bool)digitalRead(pin) == mode))
     {

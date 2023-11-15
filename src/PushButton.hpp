@@ -39,6 +39,7 @@ public:
 
 private:
     uint32_t last_pressed = 0;
+    uint32_t last_release = 0;
     uint8_t pin = 0;
     bool is_pressed = false;
     bool just_released = false;
